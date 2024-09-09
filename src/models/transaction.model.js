@@ -14,11 +14,15 @@ const TransactionSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    rentPerDay: {
+        type: Number,
+        required:true
+    },
     returnDate: {
         type: String,
     },
     payAbleAmount: {
-        type: String,
+        type: Number,
     },
     status: {
         type: String,

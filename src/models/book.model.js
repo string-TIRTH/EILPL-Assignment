@@ -10,13 +10,14 @@ const BookSchema = new mongoose.Schema({
         required: true
     },
     rentPerDay: {
-        type: String,
+        type: Number,
         required: true
-    },
-    quantity: {
-        type: String,
-        required: true
-    },
+    }
 })
+
+BookSchema.index({ bookName: 1 });  
+BookSchema.index({ rentPerDay: 1 });  
+BookSchema.index({ category: 1, bookName: 1, rentPerDay: 1 });
+
 const BookModel = mongoose.model('book', BookSchema)
 module.exports = BookModel
