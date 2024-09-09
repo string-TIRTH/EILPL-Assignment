@@ -16,7 +16,7 @@ const createUser =  async (req, res) => {
       }).save();
       if(newUser){
         return res.status(201).json({
-            errorMsg:'user created successfully'
+            message:'user created successfully'
         })
       }else{
         return res.status(400).json({
@@ -29,15 +29,15 @@ const createUser =  async (req, res) => {
 };
 const getAllUsers =  async (req, res) => {
   try {
-    const books = await BookModel.find({},{_id:0,__v:0})
+    const books = await UserModel.find({},{_id:0,__v:0})
     if(books.length != 0){
       return res.status(200).json({
-          'books':books,
+          'users':books,
           'length':books.length,
       })
     }else{
       return res.status(200).json({
-          'books':books,
+          'users':books,
           'length':0,
       })
     }

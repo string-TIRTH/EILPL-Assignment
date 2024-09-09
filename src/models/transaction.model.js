@@ -30,5 +30,11 @@ const TransactionSchema = new mongoose.Schema({
         default: "Issued"
     },
 })
+
+TransactionSchema.index({ bookName: 1 });  
+TransactionSchema.index({ userId: 1 });  
+TransactionSchema.index({ issueDate: 1 });  
+
+
 const TransactionModel = mongoose.model('transaction', TransactionSchema)
 module.exports = TransactionModel

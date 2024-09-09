@@ -4,6 +4,7 @@ const validationPOST = (schema) => async (req, res, next) => {
       await schema.validate(body);
       next();
     } catch (error) {
+      console.log(error)
       return res.status(400).json({
         error: error.message,
         message: "error at middleware",
@@ -12,11 +13,13 @@ const validationPOST = (schema) => async (req, res, next) => {
   };
   
 const validationGET = (schema) => async (req, res, next) => {
-    const { params } = req;
+    const { query } = req;
     try {
-      await schema.validate(params);
+      await schema.validate(query);
       next();
     } catch (error) {
+      console.log(error)
+
       return res.status(400).json({
         error: error.message,
         message: "error at middleware",

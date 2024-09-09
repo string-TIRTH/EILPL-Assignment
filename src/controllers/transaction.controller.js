@@ -74,7 +74,8 @@ const returnBook =  async (req, res) => {
       await transaction.save();
    
     return res.status(200).json({
-        messsage:'book returned successfully'
+        messsage:'book returned successfully',
+        payAbleAmount: transaction.payAbleAmount
     })
       
     } catch (error) {

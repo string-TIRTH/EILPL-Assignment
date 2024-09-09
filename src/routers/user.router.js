@@ -4,5 +4,5 @@ const { validationPOST, validationGET } = require("../middlewares/validation.mid
 const userValidator = require("../validators/user.validator.js"); 
 const UserController = require("../controllers/user.controller");
     router.post("/create",validationPOST(userValidator.createUser),UserController.createUser); 
-    router.post("/allUsers",UserController.getAllUsers); 
+    router.get("/allUsers",UserController.getAllUsers); 
 module.exports = router
